@@ -76,7 +76,7 @@ class MySVM(BaseEstimator):
 
             # обновляемся по антиградиенту
             # TODO
-            self.w = self.w - self.step * (np.dot(y, x) * grad - self.der_reg())
+            self.w = self.w - self.step * (np.dot(y, x) * grad + self.der_reg())
             self.w0 = self.w0 - self.step * np.dot(y, np.ones(100)) * grad
 
         # метод fit для sklearn должен возвращать self
